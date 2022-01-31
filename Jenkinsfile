@@ -5,7 +5,7 @@ node{
     }
     
     stage(" Maven Clean Package"){
-      def mavenHome =  tool name: "Maven-3.6.0", type: "maven"
+      def mavenHome =  tool name: "Maven-3.5.6", type: "maven"
       def mavenCMD = "${mavenHome}/bin/mvn"
       sh "${mavenCMD} clean package"
       
@@ -13,14 +13,14 @@ node{
     
     
     stage('Build Docker Image'){
-        sh 'docker build -t dockerhandson/java-web-app .'
+        sh 'docker build -t 12docksiva/java-web-app .'
     }
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'Docker_Hub_Pwd', variable: 'Docker_Hub_Pwd')]) {
-          sh "docker login -u dockerhandson -p ${Docker_Hub_Pwd}"
+          sh "docker login -u 12docksiva -p ${Docker_Hub_Pwd}"
         }
-        sh 'docker push dockerhandson/java-web-app'
+        sh 'docker push 12docksiva/java-web-app'
      }
      
       stage('Run Docker Image In Dev Server'){
