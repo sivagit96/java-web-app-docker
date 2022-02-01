@@ -18,9 +18,9 @@ node{
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'docksiva', variable: 'dockerhub')]) {
-          sh "docker login -u 12docksiva -p ${dockerhub} 172.31.14.127:8083"
+          sh "docker login -u 12docksiva -p ${dockerhub}"
         }
-        sh 'docker push 172.31.14.127:8083/12docksiva/java-web-app'
+        sh 'docker push 12docksiva/java-web-app'
      }
      
       stage('Run Docker Image In Dev Server'){
@@ -28,7 +28,7 @@ node{
         def dockerRun = ' docker run  -d -p 8080:8083 --name java-web-app 12docksiva/java-web-app'
          
          sshagent(['12docksiva']) {
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.14.127 docker stop java-web-app || true'
+          sh 'ssh -o Str0ictHostKeyChecking=no ubuntu@172.31.14.127 docker service java-web-app || true'
           sh 'ssh  ubuntu@172.31.14.127 docker rm java-web-app || true'
           sh 'ssh  ubuntu@172.31.14.127 docker rmi -f  $(docker images -q) || true'
           sh "ssh  ubuntu@172.31.14.127 ${dockerRun}"
