@@ -18,7 +18,7 @@ node{
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'docksiva', variable: 'Dockerhub')]) {
-          sh "docker login -u 12docksiva -p ${Dockerhub}"
+          sh "docker login -u 12docksiva -p ${dockerhub}"
         }
         sh 'docker push 12docksiva/java-web-app'
      }
