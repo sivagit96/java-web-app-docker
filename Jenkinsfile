@@ -28,7 +28,7 @@ node{
         def dockerRun = ' docker run  -d -p 8080:8083 --name java-web-app 12docksiva/java-web-app'
          
          sshagent(['12docksiva']) {
-          sh 'ssh -o Str0ictHostKeyChecking=no ubuntu@172.31.14.127 docker service java-web-app || true'
+          sh 'ssh -o Str0ictHostKeyChecking=no ubuntu@172.31.14.127 docker stop java-web-app || true'
           sh 'ssh  ubuntu@172.31.14.127 docker rm java-web-app || true'
           sh 'ssh  ubuntu@172.31.14.127 docker rmi -f  $(docker images -q) || true'
           sh "ssh  ubuntu@172.31.14.127 ${dockerRun}"
