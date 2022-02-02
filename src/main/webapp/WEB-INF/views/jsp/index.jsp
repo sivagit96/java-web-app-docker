@@ -40,7 +40,7 @@
 
 	<div class="row">
 		<div class="col-md-8">
-			<h2>This is my first project on devops.</h2>
+			<h2>This is my first project on devops</h2>
 			<h3>Hi i am siva</h3>
 		</div>	
 	</div>
@@ -48,7 +48,7 @@
 
 	<hr>
 	<footer>
-		<p>&copy; cloudcandy 2020</p>
+		<p>&copy; siva</p>
 	</footer>
 </div>
 
