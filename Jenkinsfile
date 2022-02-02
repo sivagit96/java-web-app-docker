@@ -13,15 +13,15 @@ node{
     } 
     
     
-    stage('Build Docker Image'){
-         sh 'docker build -t 12docksiva/java-web-app:${buildNumber} .'
+    stage("Build Docker Image"){
+         sh "docker build -t 12docksiva/java-web-app:${buildNumber} ."
     }
     
-    stage('Push Docker Image'){
+    stage("Push Docker Image"){
         withCredentials([string(credentialsId: 'docksiva', variable: 'dockerhub')]) {
           sh "docker login -u 12docksiva -p ${dockerhub}"
         }
-        sh 'docker push 12docksiva/java-web-app'
+        sh "docker push 12docksiva/java-web-app"
      }
      
       stage('Run Docker Image In Dev Server'){
