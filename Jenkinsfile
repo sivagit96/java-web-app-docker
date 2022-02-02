@@ -13,7 +13,7 @@ node{
     } 
     
     
-    stage("Build Docker Image"){
+    stage('Build Docker Image'){
          sh "docker build -t 12docksiva/java-web-app:${buildNumber} ."
     }
     
