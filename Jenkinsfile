@@ -25,9 +25,9 @@ node{
      }
      
       stage('Deploy to docker container in docker deployer '){
-          sshagent(['12dock']) {
-           sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.14.127 docker rm -f 12docksiva || true'
-           sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.14.127 docker run -d -p 8050:80 --name sivawebcontainer 12docksiva/java-web-app'           
+          sshagent(['Docker_hub_pwd']) {
+           sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.2.226 docker rm -f 12docksiva || true'
+           sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.2.226 docker run -d -p 8050:80 --name sivawebcontainer 12docksiva/java-web-app'           
        }
        
     }
