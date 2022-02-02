@@ -14,7 +14,7 @@ node{
     
     
     stage('Build Docker Image'){
-         sh "docker build -t 12docksiva/java-web-app:${buildNumber} ."
+         sh 'docker build -t 12docksiva/java-web-app:${buildNumber} .'
     }
     
     stage("Push Docker Image"){
