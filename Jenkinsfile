@@ -1,6 +1,7 @@
 node{
      
-    stage('SCM Checkout'){
+     def buildNumber=BUILD_NUMBER
+     stage('SCM Checkout'){
         git url: 'https://github.com/sivagit96/java-web-app-docker.git',branch: 'master'
     }
     
@@ -13,7 +14,7 @@ node{
     
     
     stage('Build Docker Image'){
-        sh 'docker build -t 12docksiva/java-web-app .'
+         sh 'docker build -t 12docksiva/java-web-app:${buildNumber} .'
     }
     
     stage('Push Docker Image'){
