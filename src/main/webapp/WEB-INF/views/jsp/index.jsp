@@ -40,8 +40,8 @@
 
 	<div class="row">
 		<div class="col-md-8">
-			<h2>This is my first project on devops</h2>
-			<h3>Hi i am siva</h3>
+			<h2>Welcome To cloudcandy,siva</h2>
+			<h3>Contact @ +91-9597361516</h3>
 		</div>	
 	</div>
 
