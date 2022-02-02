@@ -21,7 +21,7 @@ node{
         withCredentials([string(credentialsId: 'docksiva', variable: 'dockerhub')]) {
           sh "docker login -u 12docksiva -p ${dockerhub}"
         }
-         sh "docker push 12docksiva/java-web-app:"
+         sh "docker push 12docksiva/java-web-app"
      }
      
       stage('Deploy to docker container in docker deployer '){
